@@ -83,6 +83,7 @@ article {
 	left: 10vw;
 	top: 15vh;
 	width: 40vw;
+	min-width: 400px;
 	height: 70vh;
 	padding: 5%;
 
@@ -122,11 +123,10 @@ article .fa-times:hover {
 
 article button {
 	text-align: center;
-	margin: 0;
 	background-image: linear-gradient(to right, #611818, #A26653);
 	color: white;
 	padding: 10px 20px;
-  	position: absolute;
+	position: absolute;
   	top: 90%;
   	left: 50%;
   	-ms-transform: translate(-50%, -50%);
