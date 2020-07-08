@@ -32,86 +32,9 @@ header h1 {
 }
 
 .more {
-	font-size: 10vw;
-	margin-left: 30px;
-	margin-top: -30px;
-	margin-right: 400px;
-	display: flex;
-}
-
-.more:hover {
-	cursor: pointer;
-	transform: scale(1.1);
-}
-
-.more h3 {
-	margin-top: -5px;
-	margin-left: 10px;
-}
-
-.socials {
-	position: absolute;
-	min-height: 160px;
-	min-width: 80px;
-	height: 10vh;
-	width: 5vw;
-	bottom: 0px;
-	right: 0px;
-	font-size: 4em;
-	color: white;
-	transition: transform .2s;
-}
-
-.socials .fa-instagram-square {
-	padding-left: 2px;
-}
-
-.socials .fa-instagram-square:hover {
-	transform: scale(1.1);
-}
-
-.socials .fa-facebook:hover {
-	transform: scale(1.1);
-}
-
-a {
-	color: inherit;* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	background-image: url("images/johannes-plenio-RwHv7LgeC7s-unsplash.png");
-	height: 100vh;
-	width: 100vw;
-	background-position: center;
-  	background-repeat: no-repeat;
-  	background-size: cover;
-}
-
-.redBar {
-	position: absolute;
-	width: 25vw;
-	height: 100vh;
-	background-color: #611818;
-}
-
-header {
-	position: absolute;
-	margin: 35vh 0 0 10vw;
-	color: white;
-}
-
-header h1 {
-	font-size: 20vw;
-	font-family: essonnes-text;
-}
-
-.more {
 	font-size: 2.5vw;
 	margin-left: 30px;
-	margin-top: -3vw;
+	margin-top: -30px;
 	margin-right: 400px;
 	display: flex;
 }
