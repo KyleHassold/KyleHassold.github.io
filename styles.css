@@ -132,3 +132,10 @@ article button {
   	-ms-transform: translate(-50%, -50%);
   	transform: translate(-50%, -50%);
 }
+
+@media (max-width: 768px) {
+	article {
+		width: 70vw;
+		font-size: 18px;
+	}
+}
