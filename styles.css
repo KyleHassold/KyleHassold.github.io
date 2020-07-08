@@ -126,6 +126,7 @@ article button {
 	background-image: linear-gradient(to right, #611818, #A26653);
 	color: white;
 	padding: 10px 20px;
+	border: none;
 	position: absolute;
   	top: 90%;
   	left: 50%;
