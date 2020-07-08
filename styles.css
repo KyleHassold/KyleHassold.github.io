@@ -1,0 +1,134 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("images/johannes-plenio-RwHv7LgeC7s-unsplash.png");
+	height: 100vh;
+	width: 100vw;
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.redBar {
+	position: absolute;
+	width: 25vw;
+	height: 100vh;
+	background-color: #611818;
+}
+
+header {
+	position: absolute;
+	margin: 35vh 0 0 10vw;
+	color: white;
+}
+
+header h1 {
+	font-size: 12em;
+	font-family: essonnes-text;
+}
+
+.more {
+	font-size: 1.5em;
+	margin-left: 30px;
+	margin-top: -30px;
+	margin-right: 400px;
+	display: flex;
+}
+
+.more:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.more h3 {
+	margin-top: -5px;
+	margin-left: 10px;
+}
+
+.socials {
+	position: absolute;
+	min-height: 160px;
+	min-width: 80px;
+	height: 10vh;
+	width: 5vw;
+	bottom: 0px;
+	right: 0px;
+	font-size: 4em;
+	color: white;
+	transition: transform .2s;
+}
+
+.socials .fa-instagram-square {
+	padding-left: 2px;
+}
+
+.socials .fa-instagram-square:hover {
+	transform: scale(1.1);
+}
+
+.socials .fa-facebook:hover {
+	transform: scale(1.1);
+}
+
+a {
+	color: inherit;
+}
+
+article {
+	position: absolute;
+	left: 10vw;
+	top: 15vh;
+	width: 40vw;
+	height: 70vh;
+	padding: 5%;
+
+	background-color: white;
+	color: #611818;
+	line-height: 1.5em;
+}
+
+article h2 {
+	font-family: essonnes-text;
+	font-size: 3em;
+}
+
+article hr {
+	border: 0;
+    height: 2px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+	background-image: linear-gradient(to right, rgba(61,18,18,1), rgba(61,18,18,0), rgba(61,18,18,0));
+}
+
+article p {
+	color: #505050;
+	font-size: .8em
+}
+
+article .fa-times {
+	position: absolute;
+	left: 93%;
+	top: 1%;
+	font-size: 2em;
+}
+
+article .fa-times:hover {
+	cursor: pointer;
+}
+
+article button {
+	text-align: center;
+	margin: 0;
+	background-image: linear-gradient(to right, #611818, #A26653);
+	color: white;
+	padding: 10px 20px;
+  	position: absolute;
+  	top: 90%;
+  	left: 50%;
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+}
