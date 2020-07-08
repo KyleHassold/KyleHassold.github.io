@@ -84,7 +84,7 @@ article {
 	top: 15vh;
 	width: 40vw;
 	min-width: 400px;
-	height: 70vh;
+	min-height: 70vh;
 	padding: 5%;
 
 	background-color: white;
@@ -135,7 +135,7 @@ article button {
 
 @media (max-width: 768px) {
 	article {
-		width: 70vw;
+		width: 80vw;
 		font-size: 18px;
 		min-width: 0px;
 	}
