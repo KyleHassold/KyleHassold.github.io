@@ -27,12 +27,12 @@ header {
 }
 
 header h1 {
-	font-size: 12em;
+	font-size: 40vw;
 	font-family: essonnes-text;
 }
 
 .more {
-	font-size: 1.5em;
+	font-size: 10vw;
 	margin-left: 30px;
 	margin-top: -30px;
 	margin-right: 400px;
@@ -136,6 +136,7 @@ article button {
 @media (max-width: 768px) {
 	article {
 		width: 70vw;
+		min-width: 0px;
 		font-size: 18px;
 	}
 }
