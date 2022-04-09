@@ -19,31 +19,37 @@
         div.card {
             position: absolute;
         }
+
+        .rest-name, .rest-rate {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
 
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="images/restr_ex.jpg" alt="Card image cap">
+        <div class="card" id="basic_card" style="width: 18rem;">
+            <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
             <div class="card-body">
-                <h5 class="card-title">CP Liquors   1mi</h5>
-                <p class="card-text">Rating: ***** (12)   $$$</p>
+                <h5 class="card-title rest-name">CP Liquors   1mi</h5>
+                <p class="card-text rest-rate">Rating: ***** (12)   $$$</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Vodka, Tequila</li>
-                <li class="list-group-item">Take Out</li>
-                <li class="list-group-item">Route 1, College Park</li>
+                <li class="list-group-item rest-category">Vodka, Tequila</li>
+                <li class="list-group-item rest-transact">Take Out</li>
+                <li class="list-group-item rest-location">Route 1, College Park</li>
             </ul>
             <div class="card-body d-flex justify-content-between">
                 <a href="#" onclick="this.parentNode.parentNode.style.display='none'" class="card-link">Nope</a>
-                <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link">Yelp</a>
+                <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
                 <a href="#" onclick="this.parentNode.parentNode.style.display='none'" class="card-link">Yum!</a>
             </div>
         </div>
         
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem; display: none">
             <img class="card-img-top" src="images/restr_ex.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Restuarant   Distance</h5>
@@ -65,4 +71,48 @@
 
 
 </body>
+
+
+<script>
+    temp = {
+        name: 'Zazie',
+        image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/Lu45z9TTgc5o8jHuru1u5A/o.jpg',
+        url: 'https://www.yelp.com/biz/zazie-san-francisco?adjust_creative=16U1oFiyIsfEcayrt94vSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=16U1oFiyIsfEcayrt94vSA',
+        review_count: 123,
+        categories: [ 'Breakfast & Brunch', 'French', 'Wine Bars' ],
+        rating: 4,
+        transactions: [ 'pickup', 'delivery' ],
+        price: '$$',
+        location: '941 Cole St, San Francisco',
+        distance: 5020.969731767104
+    }
+
+    make_card(temp)
+
+    function capitalizeWords(arr) {
+        return arr.map(element => {
+            return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase();
+        });
+    }
+
+    function make_card(restaurant) {
+        var basic_card = document.querySelector('#basic_card');
+        var new_card = basic_card.cloneNode(true);
+        new_card.id = restaurant.name
+        
+        new_card.getElementsByClassName("rest-img")[0].src = restaurant.image_url;
+        new_card.getElementsByClassName("rest-name")[0].innerHTML = restaurant.name + " <span style='font-size: 0.8em;'>" +
+                                                                    parseInt(restaurant.distance/1609.34) + "mi</span>";
+        new_card.getElementsByClassName("rest-rate")[0].innerHTML = "Rating: " + "*".repeat(parseInt(restaurant.rating)) +
+                                                                    " (" + restaurant.review_count + ") <span> Price: " +
+                                                                    restaurant.price + "</span>";
+        new_card.getElementsByClassName("rest-category")[0].innerHTML = restaurant.categories.join(", ");
+        new_card.getElementsByClassName("rest-transact")[0].innerHTML = capitalizeWords(restaurant.transactions).join(", ");
+        new_card.getElementsByClassName("rest-location")[0].innerHTML = restaurant.location;
+        new_card.getElementsByClassName("rest-yelp")[0].href = restaurant.url;
+
+        basic_card.after(new_card);
+    }
+</script>
+
 </html>
