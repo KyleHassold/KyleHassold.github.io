@@ -33,11 +33,41 @@
 
 <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
-        <div class="card" id="basic_card" style="width: 18rem;">
+        
+        <div class="card" style="width: 18rem;" id="user-swap">
+            <img class="card-img-top" src="images/food-svgrepo-com.svg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">You're up Player 2</h5>
+                <p class="card-text">Please switch to the next user</p>
+            </div>
+            <div class="card-body d-flex justify-content-between">
+                <button type="button" class="btn btn-dark" onclick="swap_user();">Next</button>
+            </div>
+        </div>
+
+        <div class="card" id="basic_card" style="width: 18rem; display: none">
             <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
             <div class="card-body">
-                <h5 class="card-title rest-name">CP Liquors   1mi</h5>
-                <p class="card-text rest-rate">Rating: ***** (12)   $$$</p>
+                <h5 class="card-title rest-name">Restuarant   <span>Distance</span></h5>
+                <p class="card-text rest-rate">Rating: ***** (XXX)   <span>Price: $$$$</span></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item rest-category">Categories</li>
+                <li class="list-group-item rest-transact">Transactions</li>
+                <li class="list-group-item rest-location">Street, City</li>
+            </ul>
+            <div class="card-body d-flex justify-content-between">
+                <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link">Nope</a>
+                <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
+                <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link">Yum!</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title rest-name">CP Liquor <span>3 mi</span></h5>
+                <p class="card-text rest-rate">Rating: **** (123)   <span>Price: $$$</span></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item rest-category">Vodka, Tequila</li>
@@ -45,27 +75,9 @@
                 <li class="list-group-item rest-location">Route 1, College Park</li>
             </ul>
             <div class="card-body d-flex justify-content-between">
-                <a href="#" onclick="this.parentNode.parentNode.style.display='none'" class="card-link">Nope</a>
+                <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link">Nope</a>
                 <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
-                <a href="#" onclick="this.parentNode.parentNode.style.display='none'" class="card-link">Yum!</a>
-            </div>
-        </div>
-        
-        <div class="card" style="width: 18rem; display: none">
-            <img class="card-img-top" src="images/restr_ex.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Restuarant   Distance</h5>
-                <p class="card-text">Rating: ***** (1234)   Price</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Categories</li>
-                <li class="list-group-item">Transaction Style</li>
-                <li class="list-group-item">Location</li>
-            </ul>
-            <div class="card-body d-flex justify-content-between">
-                <a href="#" onclick="this.parentNode.parentNode.style.display='none'" class="card-link">Nope</a>
-                <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link">Yelp</a>
-                <a href="#" onclick="this.parentNode.parentNode.style.display='none'" class="card-link">Yum!</a>
+                <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link">Yum!</a>
             </div>
         </div>
     </div>
@@ -76,44 +88,8 @@
 
 
 <script>
-    const yelp = require('./yelp');
-    var restaurants = [];
-    var per_person = 5;
-    var enough_matches = 5;
-    var likes = [];
-    var matches = [];
-
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(call_api);
-    }
-
-    function call_api(pos) {
-        var searchRequest = {
-            latitude: pos.coords.latitude,
-            longitude: pos.coords.longitude,
-            radius: parseInt(localStorage.getItem("distance")*1209.34),
-            categories: localStorage.getItem("categories"),
-            price: localStorage.getItem("prices"),
-            sort_by: 'rating',
-            open_now: true,
-            limit: 20,
-        }
-
-        yelp.searchYelp(searchRequest).then(rests => {
-            restaurants = rests; console.log(rests);
-        });
-
-        console.log(restaurants);
-
-
-    }
-
-    function make_deck(){
-
-    }
-
-
-    temp = {
+    // const yelp = require('./yelp');
+    var restaurants = [{
         name: 'Zazie',
         image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/Lu45z9TTgc5o8jHuru1u5A/o.jpg',
         url: 'https://www.yelp.com/biz/zazie-san-francisco?adjust_creative=16U1oFiyIsfEcayrt94vSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=16U1oFiyIsfEcayrt94vSA',
@@ -124,9 +100,106 @@
         price: '$$',
         location: '941 Cole St, San Francisco',
         distance: 5020.969731767104
+    }];
+    var per_person = 5;
+    var enough_matches = 5;
+    var likes = [];
+    var matches = [];
+    var curr_user = 1;
+    var max_users = 2;
+    var last_rest = 0;
+    var using_matches = 0;
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(call_api);
     }
 
-    make_card(temp)
+    function call_api(pos) {
+        var searchRequest = {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude,
+            radius: parseInt(localStorage.getItem("distance")*1609.34),
+            categories: localStorage.getItem("categories"),
+            price: localStorage.getItem("prices"),
+            sort_by: 'rating',
+            open_now: true,
+            limit: 20,
+        }
+
+        // yelp.searchYelp(searchRequest).then(rests => {
+        //     restaurants = rests; console.log(rests);
+        // });
+
+        console.log(restaurants);
+
+        swap_user();
+    }
+
+    function make_deck(rests) {
+        rests = rests.sort((a, b) => 0.5 - Math.random());
+
+        for (var i = 0; i < rests.length; i++) {
+            make_card(rests[i]);
+        }
+
+        curr_user = curr_user % 2 + 1;
+        document.getElementById("user-swap").getElementsByClassName("card-title") = "You're up Player " + curr_user;
+    }
+
+    function swap_user() {
+        if ((matches.length >= enough_matches || restaurants.length <= last_rest) && using_matches === 0) {
+            using_matches = 1;
+            restaurants = matches;
+            per_person = restaurants.length;
+            matches = [];
+        } else if (using_matches === 1) {
+            using_matches++;
+        } else if (using_matches === 2) {
+            show_results();
+        }
+
+        var new_rests = [];
+
+        for (var i = 0; i < likes.length; i++) {
+            new_rests.push(restaurants[likes[i]]);
+        }
+
+        for (var i = new_rests.length; i < per_person & restaurants.length <= last_rest; i++) {
+            new_rests.push(restaurants[last_rest++]);
+        }
+
+        make_deck(new_rests);
+    }
+
+    function show_results() {
+        console.log(matches);
+        console.log(restaurants);
+    }
+
+    function judge(card, judgement) {
+        rest_name = $(card).find("h5.rest-name")[0].innerHTML.split(" <span>")[0];
+        var index = -1;
+        restaurants.find(function(item, i){
+            if(item.name === rest_name){
+                index = i;
+                return i;
+            }
+        });
+        console.log(index);
+        $(card).hide();
+        if (index === -1)
+            return;
+
+        if (likes.indexOf(index) >= 0) {
+            likes.splice(likes.indexOf(index), 1);
+            if (judgement === 1)
+                matches.push(index);
+        } else if (judgement === 1) {
+            likes.push(index);
+        }
+        console.log(likes);
+        console.log(matches);
+    }
 
     function capitalizeWords(arr) {
         return arr.map(element => {
