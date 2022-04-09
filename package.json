@@ -1,0 +1,22 @@
+{
+  "name": "kylehassold.github.io",
+  "version": "1.0.0",
+  "description": "A Tinder style web app for deciding on a restaurant with others!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleHassold/KyleHassold.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyleHassold/KyleHassold.github.io/issues"
+  },
+  "homepage": "https://github.com/KyleHassold/KyleHassold.github.io#readme",
+  "dependencies": {
+    "yelp-fusion": "^3.0.0"
+  }
+}
