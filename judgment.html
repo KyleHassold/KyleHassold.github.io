@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="bundle.js"></script>
+    <!-- <script src="yelp.js"></script> -->
     <style>
         html, body {
             height: 100%;
@@ -74,6 +76,43 @@
 
 
 <script>
+    const yelp = require('./yelp');
+    var restaurants = [];
+    var per_person = 5;
+    var enough_matches = 5;
+    var likes = [];
+    var matches = [];
+
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(call_api);
+    }
+
+    function call_api(pos) {
+        var searchRequest = {
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude,
+            radius: parseInt(localStorage.getItem("distance")*1209.34),
+            categories: localStorage.getItem("categories"),
+            price: localStorage.getItem("prices"),
+            sort_by: 'rating',
+            open_now: true,
+            limit: 20,
+        }
+
+        yelp.searchYelp(searchRequest).then(rests => {
+            restaurants = rests; console.log(rests);
+        });
+
+        console.log(restaurants);
+
+
+    }
+
+    function make_deck(){
+
+    }
+
+
     temp = {
         name: 'Zazie',
         image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/Lu45z9TTgc5o8jHuru1u5A/o.jpg',

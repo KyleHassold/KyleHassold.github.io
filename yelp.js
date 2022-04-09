@@ -1,9 +1,10 @@
 'use strict';
 
-require('dotenv').config();
+// require('dotenv').config();
 const yelp = require('yelp-fusion');
 
-const apiKey = process.env.YELP_API_KEY;
+const apiKey = "cchs8Dx5bv1NQHQSPFWty6o-FQUnA5_XxE1ekIKcon2OXvv11UI9UwXN0qkzlAAf6Lc1_Hw_MXZ1M3u2y_SkJ6a-fpRKgUFqFYTQt108V_4c5TEdY6pJuz682glRYnYx";
+// const apiKey = process.env.YELP_API_KEY;
 
 function searchYelp(searchRequest) {
     const client = yelp.client(apiKey);
