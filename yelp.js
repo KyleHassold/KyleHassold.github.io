@@ -1,10 +1,9 @@
 'use strict';
 
+require('dotenv').config();
 const yelp = require('yelp-fusion');
-const config = require('./config');
 
-const apiKey = config.YELP_API_KEY;
-
+const apiKey = process.env.YELP_API_KEY;
 
 function searchYelp(searchRequest) {
     const client = yelp.client(apiKey);
@@ -13,16 +12,14 @@ function searchYelp(searchRequest) {
         const firstResult = response.jsonBody.businesses[0];
         const prettyJson = JSON.stringify(firstResult, null, 4);
         console.log(prettyJson);
-        for (let i = 1; i < response.jsonBody.businesses.length; i++) {
-            const prettyJson = JSON.stringify(response.jsonBody.businesses[i], null, 4);
-            console.log(prettyJson);
-        }
+        // for (let i = 1; i < response.jsonBody.businesses.length; i++) {
+        //     const prettyJson = JSON.stringify(response.jsonBody.businesses[i], null, 4);
+        //     console.log(prettyJson);
+        // }
 
         const restaurants = [];
 
         for (const result of response.jsonBody.businesses) {
-            console.log(result.name);
-
             const categories = [];
             for (const category of result.categories) {
                 categories.push(category.title);

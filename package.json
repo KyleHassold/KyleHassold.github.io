@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KyleHassold/KyleHassold.github.io#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "yelp-fusion": "^3.0.0"
   }
 }
