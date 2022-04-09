@@ -75,7 +75,7 @@
 
             <div class="form-check">
                 <label for="food_dist" class="form-label">Restraunt Distance Miles</label>
-                <input type="range" class="form-range" min="1" max="25" value="25" id="food_dist">
+                <input type="range" class="form-range" min="1" max="24" value="24" id="food_dist">
             </div>
 
             <button type="button" class="btn btn-dark" onclick="get_form(this.parentElement)">Submit</button>
@@ -88,7 +88,7 @@
 <script type="text/javascript">
     var categories = ["Burgers", "Japanese", "Chinese", "Mexican", "Italian", "Thai"]
     var prices = ["1","2","3","4"]
-    var distance = 25
+    var distance = 24
     localStorage.setItem("categories", categories.join(","));
     localStorage.setItem("prices", prices.join(","));
     localStorage.setItem("distance", distance);
@@ -113,7 +113,7 @@
         }
         
         distance = Math.min(distance, $(form).find("#food_dist")[0].value);
-        $(form).find("#food_dist")[0].value = 25;
+        $(form).find("#food_dist")[0].value = 24;
 
         localStorage.setItem("categories", categories.join(","));
         localStorage.setItem("prices", prices.join(","));
