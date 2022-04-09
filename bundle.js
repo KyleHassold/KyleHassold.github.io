@@ -1,6 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-
-},{}],2:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -510,7 +508,7 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"object-assign":14,"util/":5}],3:[function(require,module,exports){
+},{"object-assign":13,"util/":4}],2:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -535,14 +533,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 (function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -1132,7 +1130,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":4,"_process":17,"inherits":3}],6:[function(require,module,exports){
+},{"./support/isBuffer":3,"_process":14,"inherits":2}],5:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -1284,9 +1282,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
+},{}],6:[function(require,module,exports){
+
 },{}],7:[function(require,module,exports){
-arguments[4][1][0].apply(exports,arguments)
-},{"dup":1}],8:[function(require,module,exports){
 (function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
@@ -3067,7 +3065,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":6,"buffer":8,"ieee754":12}],9:[function(require,module,exports){
+},{"base64-js":5,"buffer":7,"ieee754":11}],8:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -3133,7 +3131,7 @@ module.exports = {
   "511": "Network Authentication Required"
 }
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -3632,7 +3630,7 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
   }
 }
 
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var http = require('http')
 var url = require('url')
 
@@ -3665,7 +3663,7 @@ function validateParams (params) {
   return params
 }
 
-},{"http":23,"url":43}],12:[function(require,module,exports){
+},{"http":20,"url":40}],11:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -3752,7 +3750,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3781,7 +3779,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -3873,591 +3871,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],15:[function(require,module,exports){
-exports.endianness = function () { return 'LE' };
-
-exports.hostname = function () {
-    if (typeof location !== 'undefined') {
-        return location.hostname
-    }
-    else return '';
-};
-
-exports.loadavg = function () { return [] };
-
-exports.uptime = function () { return 0 };
-
-exports.freemem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.totalmem = function () {
-    return Number.MAX_VALUE;
-};
-
-exports.cpus = function () { return [] };
-
-exports.type = function () { return 'Browser' };
-
-exports.release = function () {
-    if (typeof navigator !== 'undefined') {
-        return navigator.appVersion;
-    }
-    return '';
-};
-
-exports.networkInterfaces
-= exports.getNetworkInterfaces
-= function () { return {} };
-
-exports.arch = function () { return 'javascript' };
-
-exports.platform = function () { return 'browser' };
-
-exports.tmpdir = exports.tmpDir = function () {
-    return '/tmp';
-};
-
-exports.EOL = '\n';
-
-exports.homedir = function () {
-	return '/'
-};
-
-},{}],16:[function(require,module,exports){
-(function (process){(function (){
-// 'path' module extracted from Node.js v8.11.1 (only the posix part)
-// transplited with Babel
-
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-'use strict';
-
-function assertPath(path) {
-  if (typeof path !== 'string') {
-    throw new TypeError('Path must be a string. Received ' + JSON.stringify(path));
-  }
-}
-
-// Resolves . and .. elements in a path with directory names
-function normalizeStringPosix(path, allowAboveRoot) {
-  var res = '';
-  var lastSegmentLength = 0;
-  var lastSlash = -1;
-  var dots = 0;
-  var code;
-  for (var i = 0; i <= path.length; ++i) {
-    if (i < path.length)
-      code = path.charCodeAt(i);
-    else if (code === 47 /*/*/)
-      break;
-    else
-      code = 47 /*/*/;
-    if (code === 47 /*/*/) {
-      if (lastSlash === i - 1 || dots === 1) {
-        // NOOP
-      } else if (lastSlash !== i - 1 && dots === 2) {
-        if (res.length < 2 || lastSegmentLength !== 2 || res.charCodeAt(res.length - 1) !== 46 /*.*/ || res.charCodeAt(res.length - 2) !== 46 /*.*/) {
-          if (res.length > 2) {
-            var lastSlashIndex = res.lastIndexOf('/');
-            if (lastSlashIndex !== res.length - 1) {
-              if (lastSlashIndex === -1) {
-                res = '';
-                lastSegmentLength = 0;
-              } else {
-                res = res.slice(0, lastSlashIndex);
-                lastSegmentLength = res.length - 1 - res.lastIndexOf('/');
-              }
-              lastSlash = i;
-              dots = 0;
-              continue;
-            }
-          } else if (res.length === 2 || res.length === 1) {
-            res = '';
-            lastSegmentLength = 0;
-            lastSlash = i;
-            dots = 0;
-            continue;
-          }
-        }
-        if (allowAboveRoot) {
-          if (res.length > 0)
-            res += '/..';
-          else
-            res = '..';
-          lastSegmentLength = 2;
-        }
-      } else {
-        if (res.length > 0)
-          res += '/' + path.slice(lastSlash + 1, i);
-        else
-          res = path.slice(lastSlash + 1, i);
-        lastSegmentLength = i - lastSlash - 1;
-      }
-      lastSlash = i;
-      dots = 0;
-    } else if (code === 46 /*.*/ && dots !== -1) {
-      ++dots;
-    } else {
-      dots = -1;
-    }
-  }
-  return res;
-}
-
-function _format(sep, pathObject) {
-  var dir = pathObject.dir || pathObject.root;
-  var base = pathObject.base || (pathObject.name || '') + (pathObject.ext || '');
-  if (!dir) {
-    return base;
-  }
-  if (dir === pathObject.root) {
-    return dir + base;
-  }
-  return dir + sep + base;
-}
-
-var posix = {
-  // path.resolve([from ...], to)
-  resolve: function resolve() {
-    var resolvedPath = '';
-    var resolvedAbsolute = false;
-    var cwd;
-
-    for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-      var path;
-      if (i >= 0)
-        path = arguments[i];
-      else {
-        if (cwd === undefined)
-          cwd = process.cwd();
-        path = cwd;
-      }
-
-      assertPath(path);
-
-      // Skip empty entries
-      if (path.length === 0) {
-        continue;
-      }
-
-      resolvedPath = path + '/' + resolvedPath;
-      resolvedAbsolute = path.charCodeAt(0) === 47 /*/*/;
-    }
-
-    // At this point the path should be resolved to a full absolute path, but
-    // handle relative paths to be safe (might happen when process.cwd() fails)
-
-    // Normalize the path
-    resolvedPath = normalizeStringPosix(resolvedPath, !resolvedAbsolute);
-
-    if (resolvedAbsolute) {
-      if (resolvedPath.length > 0)
-        return '/' + resolvedPath;
-      else
-        return '/';
-    } else if (resolvedPath.length > 0) {
-      return resolvedPath;
-    } else {
-      return '.';
-    }
-  },
-
-  normalize: function normalize(path) {
-    assertPath(path);
-
-    if (path.length === 0) return '.';
-
-    var isAbsolute = path.charCodeAt(0) === 47 /*/*/;
-    var trailingSeparator = path.charCodeAt(path.length - 1) === 47 /*/*/;
-
-    // Normalize the path
-    path = normalizeStringPosix(path, !isAbsolute);
-
-    if (path.length === 0 && !isAbsolute) path = '.';
-    if (path.length > 0 && trailingSeparator) path += '/';
-
-    if (isAbsolute) return '/' + path;
-    return path;
-  },
-
-  isAbsolute: function isAbsolute(path) {
-    assertPath(path);
-    return path.length > 0 && path.charCodeAt(0) === 47 /*/*/;
-  },
-
-  join: function join() {
-    if (arguments.length === 0)
-      return '.';
-    var joined;
-    for (var i = 0; i < arguments.length; ++i) {
-      var arg = arguments[i];
-      assertPath(arg);
-      if (arg.length > 0) {
-        if (joined === undefined)
-          joined = arg;
-        else
-          joined += '/' + arg;
-      }
-    }
-    if (joined === undefined)
-      return '.';
-    return posix.normalize(joined);
-  },
-
-  relative: function relative(from, to) {
-    assertPath(from);
-    assertPath(to);
-
-    if (from === to) return '';
-
-    from = posix.resolve(from);
-    to = posix.resolve(to);
-
-    if (from === to) return '';
-
-    // Trim any leading backslashes
-    var fromStart = 1;
-    for (; fromStart < from.length; ++fromStart) {
-      if (from.charCodeAt(fromStart) !== 47 /*/*/)
-        break;
-    }
-    var fromEnd = from.length;
-    var fromLen = fromEnd - fromStart;
-
-    // Trim any leading backslashes
-    var toStart = 1;
-    for (; toStart < to.length; ++toStart) {
-      if (to.charCodeAt(toStart) !== 47 /*/*/)
-        break;
-    }
-    var toEnd = to.length;
-    var toLen = toEnd - toStart;
-
-    // Compare paths to find the longest common path from root
-    var length = fromLen < toLen ? fromLen : toLen;
-    var lastCommonSep = -1;
-    var i = 0;
-    for (; i <= length; ++i) {
-      if (i === length) {
-        if (toLen > length) {
-          if (to.charCodeAt(toStart + i) === 47 /*/*/) {
-            // We get here if `from` is the exact base path for `to`.
-            // For example: from='/foo/bar'; to='/foo/bar/baz'
-            return to.slice(toStart + i + 1);
-          } else if (i === 0) {
-            // We get here if `from` is the root
-            // For example: from='/'; to='/foo'
-            return to.slice(toStart + i);
-          }
-        } else if (fromLen > length) {
-          if (from.charCodeAt(fromStart + i) === 47 /*/*/) {
-            // We get here if `to` is the exact base path for `from`.
-            // For example: from='/foo/bar/baz'; to='/foo/bar'
-            lastCommonSep = i;
-          } else if (i === 0) {
-            // We get here if `to` is the root.
-            // For example: from='/foo'; to='/'
-            lastCommonSep = 0;
-          }
-        }
-        break;
-      }
-      var fromCode = from.charCodeAt(fromStart + i);
-      var toCode = to.charCodeAt(toStart + i);
-      if (fromCode !== toCode)
-        break;
-      else if (fromCode === 47 /*/*/)
-        lastCommonSep = i;
-    }
-
-    var out = '';
-    // Generate the relative path based on the path difference between `to`
-    // and `from`
-    for (i = fromStart + lastCommonSep + 1; i <= fromEnd; ++i) {
-      if (i === fromEnd || from.charCodeAt(i) === 47 /*/*/) {
-        if (out.length === 0)
-          out += '..';
-        else
-          out += '/..';
-      }
-    }
-
-    // Lastly, append the rest of the destination (`to`) path that comes after
-    // the common path parts
-    if (out.length > 0)
-      return out + to.slice(toStart + lastCommonSep);
-    else {
-      toStart += lastCommonSep;
-      if (to.charCodeAt(toStart) === 47 /*/*/)
-        ++toStart;
-      return to.slice(toStart);
-    }
-  },
-
-  _makeLong: function _makeLong(path) {
-    return path;
-  },
-
-  dirname: function dirname(path) {
-    assertPath(path);
-    if (path.length === 0) return '.';
-    var code = path.charCodeAt(0);
-    var hasRoot = code === 47 /*/*/;
-    var end = -1;
-    var matchedSlash = true;
-    for (var i = path.length - 1; i >= 1; --i) {
-      code = path.charCodeAt(i);
-      if (code === 47 /*/*/) {
-          if (!matchedSlash) {
-            end = i;
-            break;
-          }
-        } else {
-        // We saw the first non-path separator
-        matchedSlash = false;
-      }
-    }
-
-    if (end === -1) return hasRoot ? '/' : '.';
-    if (hasRoot && end === 1) return '//';
-    return path.slice(0, end);
-  },
-
-  basename: function basename(path, ext) {
-    if (ext !== undefined && typeof ext !== 'string') throw new TypeError('"ext" argument must be a string');
-    assertPath(path);
-
-    var start = 0;
-    var end = -1;
-    var matchedSlash = true;
-    var i;
-
-    if (ext !== undefined && ext.length > 0 && ext.length <= path.length) {
-      if (ext.length === path.length && ext === path) return '';
-      var extIdx = ext.length - 1;
-      var firstNonSlashEnd = -1;
-      for (i = path.length - 1; i >= 0; --i) {
-        var code = path.charCodeAt(i);
-        if (code === 47 /*/*/) {
-            // If we reached a path separator that was not part of a set of path
-            // separators at the end of the string, stop now
-            if (!matchedSlash) {
-              start = i + 1;
-              break;
-            }
-          } else {
-          if (firstNonSlashEnd === -1) {
-            // We saw the first non-path separator, remember this index in case
-            // we need it if the extension ends up not matching
-            matchedSlash = false;
-            firstNonSlashEnd = i + 1;
-          }
-          if (extIdx >= 0) {
-            // Try to match the explicit extension
-            if (code === ext.charCodeAt(extIdx)) {
-              if (--extIdx === -1) {
-                // We matched the extension, so mark this as the end of our path
-                // component
-                end = i;
-              }
-            } else {
-              // Extension does not match, so our result is the entire path
-              // component
-              extIdx = -1;
-              end = firstNonSlashEnd;
-            }
-          }
-        }
-      }
-
-      if (start === end) end = firstNonSlashEnd;else if (end === -1) end = path.length;
-      return path.slice(start, end);
-    } else {
-      for (i = path.length - 1; i >= 0; --i) {
-        if (path.charCodeAt(i) === 47 /*/*/) {
-            // If we reached a path separator that was not part of a set of path
-            // separators at the end of the string, stop now
-            if (!matchedSlash) {
-              start = i + 1;
-              break;
-            }
-          } else if (end === -1) {
-          // We saw the first non-path separator, mark this as the end of our
-          // path component
-          matchedSlash = false;
-          end = i + 1;
-        }
-      }
-
-      if (end === -1) return '';
-      return path.slice(start, end);
-    }
-  },
-
-  extname: function extname(path) {
-    assertPath(path);
-    var startDot = -1;
-    var startPart = 0;
-    var end = -1;
-    var matchedSlash = true;
-    // Track the state of characters (if any) we see before our first dot and
-    // after any path separator we find
-    var preDotState = 0;
-    for (var i = path.length - 1; i >= 0; --i) {
-      var code = path.charCodeAt(i);
-      if (code === 47 /*/*/) {
-          // If we reached a path separator that was not part of a set of path
-          // separators at the end of the string, stop now
-          if (!matchedSlash) {
-            startPart = i + 1;
-            break;
-          }
-          continue;
-        }
-      if (end === -1) {
-        // We saw the first non-path separator, mark this as the end of our
-        // extension
-        matchedSlash = false;
-        end = i + 1;
-      }
-      if (code === 46 /*.*/) {
-          // If this is our first dot, mark it as the start of our extension
-          if (startDot === -1)
-            startDot = i;
-          else if (preDotState !== 1)
-            preDotState = 1;
-      } else if (startDot !== -1) {
-        // We saw a non-dot and non-path separator before our dot, so we should
-        // have a good chance at having a non-empty extension
-        preDotState = -1;
-      }
-    }
-
-    if (startDot === -1 || end === -1 ||
-        // We saw a non-dot character immediately before the dot
-        preDotState === 0 ||
-        // The (right-most) trimmed path component is exactly '..'
-        preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
-      return '';
-    }
-    return path.slice(startDot, end);
-  },
-
-  format: function format(pathObject) {
-    if (pathObject === null || typeof pathObject !== 'object') {
-      throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof pathObject);
-    }
-    return _format('/', pathObject);
-  },
-
-  parse: function parse(path) {
-    assertPath(path);
-
-    var ret = { root: '', dir: '', base: '', ext: '', name: '' };
-    if (path.length === 0) return ret;
-    var code = path.charCodeAt(0);
-    var isAbsolute = code === 47 /*/*/;
-    var start;
-    if (isAbsolute) {
-      ret.root = '/';
-      start = 1;
-    } else {
-      start = 0;
-    }
-    var startDot = -1;
-    var startPart = 0;
-    var end = -1;
-    var matchedSlash = true;
-    var i = path.length - 1;
-
-    // Track the state of characters (if any) we see before our first dot and
-    // after any path separator we find
-    var preDotState = 0;
-
-    // Get non-dir info
-    for (; i >= start; --i) {
-      code = path.charCodeAt(i);
-      if (code === 47 /*/*/) {
-          // If we reached a path separator that was not part of a set of path
-          // separators at the end of the string, stop now
-          if (!matchedSlash) {
-            startPart = i + 1;
-            break;
-          }
-          continue;
-        }
-      if (end === -1) {
-        // We saw the first non-path separator, mark this as the end of our
-        // extension
-        matchedSlash = false;
-        end = i + 1;
-      }
-      if (code === 46 /*.*/) {
-          // If this is our first dot, mark it as the start of our extension
-          if (startDot === -1) startDot = i;else if (preDotState !== 1) preDotState = 1;
-        } else if (startDot !== -1) {
-        // We saw a non-dot and non-path separator before our dot, so we should
-        // have a good chance at having a non-empty extension
-        preDotState = -1;
-      }
-    }
-
-    if (startDot === -1 || end === -1 ||
-    // We saw a non-dot character immediately before the dot
-    preDotState === 0 ||
-    // The (right-most) trimmed path component is exactly '..'
-    preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
-      if (end !== -1) {
-        if (startPart === 0 && isAbsolute) ret.base = ret.name = path.slice(1, end);else ret.base = ret.name = path.slice(startPart, end);
-      }
-    } else {
-      if (startPart === 0 && isAbsolute) {
-        ret.name = path.slice(1, startDot);
-        ret.base = path.slice(1, end);
-      } else {
-        ret.name = path.slice(startPart, startDot);
-        ret.base = path.slice(startPart, end);
-      }
-      ret.ext = path.slice(startDot, end);
-    }
-
-    if (startPart > 0) ret.dir = path.slice(0, startPart - 1);else if (isAbsolute) ret.dir = '/';
-
-    return ret;
-  },
-
-  sep: '/',
-  delimiter: ':',
-  win32: null,
-  posix: null
-};
-
-posix.posix = posix;
-
-module.exports = posix;
-
-}).call(this)}).call(this,require('_process'))
-},{"_process":17}],17:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -4643,7 +4057,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],18:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){(function (){
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 ;(function(root) {
@@ -5180,7 +4594,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],19:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5266,7 +4680,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],20:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -5353,13 +4767,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],21:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":19,"./encode":20}],22:[function(require,module,exports){
+},{"./decode":16,"./encode":17}],19:[function(require,module,exports){
 /*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
@@ -5426,7 +4840,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":8}],23:[function(require,module,exports){
+},{"buffer":7}],20:[function(require,module,exports){
 (function (global){(function (){
 var ClientRequest = require('./lib/request')
 var response = require('./lib/response')
@@ -5514,7 +4928,7 @@ http.METHODS = [
 	'UNSUBSCRIBE'
 ]
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./lib/request":25,"./lib/response":26,"builtin-status-codes":9,"url":43,"xtend":46}],24:[function(require,module,exports){
+},{"./lib/request":22,"./lib/response":23,"builtin-status-codes":8,"url":40,"xtend":43}],21:[function(require,module,exports){
 (function (global){(function (){
 exports.fetch = isFunction(global.fetch) && isFunction(global.ReadableStream)
 
@@ -5577,7 +4991,7 @@ function isFunction (value) {
 xhr = null // Help gc
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],25:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 (function (process,global,Buffer){(function (){
 var capability = require('./capability')
 var inherits = require('inherits')
@@ -5933,7 +5347,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"./capability":24,"./response":26,"_process":17,"buffer":8,"inherits":13,"readable-stream":41}],26:[function(require,module,exports){
+},{"./capability":21,"./response":23,"_process":14,"buffer":7,"inherits":12,"readable-stream":38}],23:[function(require,module,exports){
 (function (process,global,Buffer){(function (){
 var capability = require('./capability')
 var inherits = require('inherits')
@@ -6148,7 +5562,7 @@ IncomingMessage.prototype._onXHRProgress = function (resetTimers) {
 }
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"./capability":24,"_process":17,"buffer":8,"inherits":13,"readable-stream":41}],27:[function(require,module,exports){
+},{"./capability":21,"_process":14,"buffer":7,"inherits":12,"readable-stream":38}],24:[function(require,module,exports){
 'use strict';
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
@@ -6277,7 +5691,7 @@ createErrorType('ERR_UNKNOWN_ENCODING', function (arg) {
 createErrorType('ERR_STREAM_UNSHIFT_AFTER_END_EVENT', 'stream.unshift() after end event');
 module.exports.codes = codes;
 
-},{}],28:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 (function (process){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -6419,7 +5833,7 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
   }
 });
 }).call(this)}).call(this,require('_process'))
-},{"./_stream_readable":30,"./_stream_writable":32,"_process":17,"inherits":13}],29:[function(require,module,exports){
+},{"./_stream_readable":27,"./_stream_writable":29,"_process":14,"inherits":12}],26:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -6459,7 +5873,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":31,"inherits":13}],30:[function(require,module,exports){
+},{"./_stream_transform":28,"inherits":12}],27:[function(require,module,exports){
 (function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -7586,7 +7000,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../errors":27,"./_stream_duplex":28,"./internal/streams/async_iterator":33,"./internal/streams/buffer_list":34,"./internal/streams/destroy":35,"./internal/streams/from":37,"./internal/streams/state":39,"./internal/streams/stream":40,"_process":17,"buffer":8,"events":10,"inherits":13,"string_decoder/":42,"util":7}],31:[function(require,module,exports){
+},{"../errors":24,"./_stream_duplex":25,"./internal/streams/async_iterator":30,"./internal/streams/buffer_list":31,"./internal/streams/destroy":32,"./internal/streams/from":34,"./internal/streams/state":36,"./internal/streams/stream":37,"_process":14,"buffer":7,"events":9,"inherits":12,"string_decoder/":39,"util":6}],28:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7788,7 +7202,7 @@ function done(stream, er, data) {
   if (stream._transformState.transforming) throw new ERR_TRANSFORM_ALREADY_TRANSFORMING();
   return stream.push(null);
 }
-},{"../errors":27,"./_stream_duplex":28,"inherits":13}],32:[function(require,module,exports){
+},{"../errors":24,"./_stream_duplex":25,"inherits":12}],29:[function(require,module,exports){
 (function (process,global){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -8488,7 +7902,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../errors":27,"./_stream_duplex":28,"./internal/streams/destroy":35,"./internal/streams/state":39,"./internal/streams/stream":40,"_process":17,"buffer":8,"inherits":13,"util-deprecate":45}],33:[function(require,module,exports){
+},{"../errors":24,"./_stream_duplex":25,"./internal/streams/destroy":32,"./internal/streams/state":36,"./internal/streams/stream":37,"_process":14,"buffer":7,"inherits":12,"util-deprecate":42}],30:[function(require,module,exports){
 (function (process){(function (){
 'use strict';
 
@@ -8698,7 +8112,7 @@ var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterat
 
 module.exports = createReadableStreamAsyncIterator;
 }).call(this)}).call(this,require('_process'))
-},{"./end-of-stream":36,"_process":17}],34:[function(require,module,exports){
+},{"./end-of-stream":33,"_process":14}],31:[function(require,module,exports){
 'use strict';
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -8909,7 +8323,7 @@ function () {
 
   return BufferList;
 }();
-},{"buffer":8,"util":7}],35:[function(require,module,exports){
+},{"buffer":7,"util":6}],32:[function(require,module,exports){
 (function (process){(function (){
 'use strict'; // undocumented cb() API, needed for core, not for public API
 
@@ -9017,7 +8431,7 @@ module.exports = {
   errorOrDestroy: errorOrDestroy
 };
 }).call(this)}).call(this,require('_process'))
-},{"_process":17}],36:[function(require,module,exports){
+},{"_process":14}],33:[function(require,module,exports){
 // Ported from https://github.com/mafintosh/end-of-stream with
 // permission from the author, Mathias Buus (@mafintosh).
 'use strict';
@@ -9122,12 +8536,12 @@ function eos(stream, opts, callback) {
 }
 
 module.exports = eos;
-},{"../../../errors":27}],37:[function(require,module,exports){
+},{"../../../errors":24}],34:[function(require,module,exports){
 module.exports = function () {
   throw new Error('Readable.from is not available in the browser')
 };
 
-},{}],38:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 // Ported from https://github.com/mafintosh/pump with
 // permission from the author, Mathias Buus (@mafintosh).
 'use strict';
@@ -9225,7 +8639,7 @@ function pipeline() {
 }
 
 module.exports = pipeline;
-},{"../../../errors":27,"./end-of-stream":36}],39:[function(require,module,exports){
+},{"../../../errors":24,"./end-of-stream":33}],36:[function(require,module,exports){
 'use strict';
 
 var ERR_INVALID_OPT_VALUE = require('../../../errors').codes.ERR_INVALID_OPT_VALUE;
@@ -9253,10 +8667,10 @@ function getHighWaterMark(state, options, duplexKey, isDuplex) {
 module.exports = {
   getHighWaterMark: getHighWaterMark
 };
-},{"../../../errors":27}],40:[function(require,module,exports){
+},{"../../../errors":24}],37:[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":10}],41:[function(require,module,exports){
+},{"events":9}],38:[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -9267,7 +8681,7 @@ exports.PassThrough = require('./lib/_stream_passthrough.js');
 exports.finished = require('./lib/internal/streams/end-of-stream.js');
 exports.pipeline = require('./lib/internal/streams/pipeline.js');
 
-},{"./lib/_stream_duplex.js":28,"./lib/_stream_passthrough.js":29,"./lib/_stream_readable.js":30,"./lib/_stream_transform.js":31,"./lib/_stream_writable.js":32,"./lib/internal/streams/end-of-stream.js":36,"./lib/internal/streams/pipeline.js":38}],42:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":25,"./lib/_stream_passthrough.js":26,"./lib/_stream_readable.js":27,"./lib/_stream_transform.js":28,"./lib/_stream_writable.js":29,"./lib/internal/streams/end-of-stream.js":33,"./lib/internal/streams/pipeline.js":35}],39:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -9564,7 +8978,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":22}],43:[function(require,module,exports){
+},{"safe-buffer":19}],40:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10298,7 +9712,7 @@ Url.prototype.parseHost = function() {
   if (host) this.hostname = host;
 };
 
-},{"./util":44,"punycode":18,"querystring":21}],44:[function(require,module,exports){
+},{"./util":41,"punycode":15,"querystring":18}],41:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -10316,7 +9730,7 @@ module.exports = {
   }
 };
 
-},{}],45:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 (function (global){(function (){
 
 /**
@@ -10387,7 +9801,7 @@ function config (name) {
 }
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],46:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module.exports = extend
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -10408,151 +9822,153 @@ function extend() {
     return target
 }
 
-},{}],47:[function(require,module,exports){
-  const yelp = require('./yelp');
+},{}],44:[function(require,module,exports){
+const yelp = require('./yelp');
 
-  var restaurants = [{
-      name: 'Zazie',
-      image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/Lu45z9TTgc5o8jHuru1u5A/o.jpg',
-      url: 'https://www.yelp.com/biz/zazie-san-francisco?adjust_creative=16U1oFiyIsfEcayrt94vSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=16U1oFiyIsfEcayrt94vSA',
-      review_count: 123,
-      categories: [ 'Breakfast & Brunch', 'French', 'Wine Bars' ],
-      rating: 4,
-      transactions: [ 'pickup', 'delivery' ],
-      price: '$$',
-      location: '941 Cole St, San Francisco',
-      distance: 5020.969731767104
-  }];
-  var per_person = 5;
-  var enough_matches = 5;
-  var likes = [];
-  var matches = [];
-  var curr_user = 1;
-  var max_users = 2;
-  var last_rest = 0;
-  var using_matches = 0;
-  
-  if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(call_api);
-  }
-  
-  function call_api(pos) {
-      var searchRequest = {
-          latitude: pos.coords.latitude,
-          longitude: pos.coords.longitude,
-          radius: parseInt(localStorage.getItem("distance")*1609.34),
-          categories: localStorage.getItem("categories"),
-          price: localStorage.getItem("prices"),
-          sort_by: 'rating',
-          open_now: true,
-          limit: 20,
-      };
-  
-      console.log(searchRequest);
-  
-      yelp.searchYelp(searchRequest).then(rests => {
-          restaurants = rests; console.log(rests);
-      });
-  
-      console.log(restaurants);
-  
-      swap_user();
-  }
-  
-  function make_deck(rests) {
-      rests = rests.sort((a, b) => 0.5 - Math.random());
-  
-      for (var i = 0; i < rests.length; i++) {
-          console.log(i)
-          make_card(rests[i]);
-      }
-  
-      curr_user = curr_user % max_users + 1;
-      document.getElementById("user-swap").getElementsByClassName("card-title").innerHTML = "You're up Player " + curr_user;
-  }
-  
-  function swap_user() {
-      if ((matches.length >= enough_matches || restaurants.length <= last_rest) && using_matches === 0) {
-          using_matches = 1;
-          restaurants = matches;
-          per_person = restaurants.length;
-          matches = [];
-      } else if (using_matches === 1) {
-          using_matches++;
-      } else if (using_matches === 2) {
-          show_results();
-      }
-  
-      var new_rests = [];
-  
-      for (var i = 0; i < likes.length; i++) {
-          new_rests.push(restaurants[likes[i]]);
-      }
-  
-      for (var i = new_rests.length; i < per_person & restaurants.length > last_rest; i++) {
-          new_rests.push(restaurants[last_rest++]);
-      }
-  
-      console.log(new_rests);
-  
-      make_deck(new_rests);
-  }
-  
-  function show_results() {
-      console.log(matches);
-      console.log(restaurants);
-  }
-  
-  function judge(card, judgement) {
-      rest_name = $(card).find("h5.rest-name")[0].innerHTML.split(" <span>")[0];
-      var index = -1;
-      restaurants.find(function(item, i){
-          if(item.name === rest_name){
-              index = i;
-              return i;
-          }
-      });
-      console.log(index);
-      $(card).hide();
-      if (index === -1)
-          return;
-  
-      if (likes.indexOf(index) >= 0) {
-          likes.splice(likes.indexOf(index), 1);
-          if (judgement === 1)
-              matches.push(index);
-      } else if (judgement === 1) {
-          likes.push(index);
-      }
-      console.log(likes);
-      console.log(matches);
-  }
-  
-  function capitalizeWords(arr) {
-      return arr.map(element => {
-          return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase();
-      });
-  }
-  
-  function make_card(restaurant) {
-      var basic_card = document.querySelector('#basic_card');
-      var new_card = basic_card.cloneNode(true);
-      new_card.id = restaurant.name
-      
-      new_card.getElementsByClassName("rest-img")[0].src = restaurant.image_url;
-      new_card.getElementsByClassName("rest-name")[0].innerHTML = restaurant.name + " <span style='font-size: 0.8em;'>" +
-                                                                  parseInt(restaurant.distance/1609.34) + "mi</span>";
-      new_card.getElementsByClassName("rest-rate")[0].innerHTML = "Rating: " + "*".repeat(parseInt(restaurant.rating)) +
-                                                                  " (" + restaurant.review_count + ") <span> Price: " +
-                                                                  restaurant.price + "</span>";
-      new_card.getElementsByClassName("rest-category")[0].innerHTML = restaurant.categories.join(", ");
-      new_card.getElementsByClassName("rest-transact")[0].innerHTML = capitalizeWords(restaurant.transactions).join(", ");
-      new_card.getElementsByClassName("rest-location")[0].innerHTML = restaurant.location;
-      new_card.getElementsByClassName("rest-yelp")[0].href = restaurant.url;
-  
-      basic_card.after(new_card);
-  }
-},{"./yelp":72}],48:[function(require,module,exports){
+var restaurants = [{
+    name: 'Zazie',
+    image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/Lu45z9TTgc5o8jHuru1u5A/o.jpg',
+    url: 'https://www.yelp.com/biz/zazie-san-francisco?adjust_creative=16U1oFiyIsfEcayrt94vSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=16U1oFiyIsfEcayrt94vSA',
+    review_count: 123,
+    categories: [ 'Breakfast & Brunch', 'French', 'Wine Bars' ],
+    rating: 4,
+    transactions: [ 'pickup', 'delivery' ],
+    price: '$$',
+    location: '941 Cole St, San Francisco',
+    distance: 5020.969731767104
+}];
+var per_person = 5;
+var enough_matches = 5;
+var likes = [];
+var matches = [];
+var curr_user = 1;
+var max_users = 2;
+var last_rest = 0;
+var using_matches = 0;
+
+console.log("1");
+
+if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(call_api);
+}
+
+function call_api(pos) {
+    var searchRequest = {
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude,
+        radius: parseInt(localStorage.getItem("distance")*1609.34),
+        categories: localStorage.getItem("categories"),
+        price: localStorage.getItem("prices"),
+        sort_by: 'rating',
+        open_now: true,
+        limit: 20,
+    };
+
+    console.log(searchRequest);
+
+    yelp.searchYelp(searchRequest).then(rests => {
+        restaurants = rests; console.log(rests);
+    });
+
+    console.log(restaurants);
+
+    swap_user();
+}
+
+function make_deck(rests) {
+    rests = rests.sort((a, b) => 0.5 - Math.random());
+
+    for (var i = 0; i < rests.length; i++) {
+        console.log(i)
+        make_card(rests[i]);
+    }
+
+    curr_user = curr_user % max_users + 1;
+    document.getElementById("user-swap").getElementsByClassName("card-title").innerHTML = "You're up Player " + curr_user;
+}
+
+function swap_user() {
+    if ((matches.length >= enough_matches || restaurants.length <= last_rest) && using_matches === 0) {
+        using_matches = 1;
+        restaurants = matches;
+        per_person = restaurants.length;
+        matches = [];
+    } else if (using_matches === 1) {
+        using_matches++;
+    } else if (using_matches === 2) {
+        show_results();
+    }
+
+    var new_rests = [];
+
+    for (var i = 0; i < likes.length; i++) {
+        new_rests.push(restaurants[likes[i]]);
+    }
+
+    for (var i = new_rests.length; i < per_person & restaurants.length > last_rest; i++) {
+        new_rests.push(restaurants[last_rest++]);
+    }
+
+    console.log(new_rests);
+
+    make_deck(new_rests);
+}
+
+function show_results() {
+    console.log(matches);
+    console.log(restaurants);
+}
+
+function judge(card, judgement) {
+    rest_name = $(card).find("h5.rest-name")[0].innerHTML.split(" <span>")[0];
+    var index = -1;
+    restaurants.find(function(item, i){
+        if(item.name === rest_name){
+            index = i;
+            return i;
+        }
+    });
+    console.log(index);
+    $(card).hide();
+    if (index === -1)
+        return;
+
+    if (likes.indexOf(index) >= 0) {
+        likes.splice(likes.indexOf(index), 1);
+        if (judgement === 1)
+            matches.push(index);
+    } else if (judgement === 1) {
+        likes.push(index);
+    }
+    console.log(likes);
+    console.log(matches);
+}
+
+function capitalizeWords(arr) {
+    return arr.map(element => {
+        return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase();
+    });
+}
+
+function make_card(restaurant) {
+    var basic_card = document.querySelector('#basic_card');
+    var new_card = basic_card.cloneNode(true);
+    new_card.id = restaurant.name
+    
+    new_card.getElementsByClassName("rest-img")[0].src = restaurant.image_url;
+    new_card.getElementsByClassName("rest-name")[0].innerHTML = restaurant.name + " <span style='font-size: 0.8em;'>" +
+                                                                parseInt(restaurant.distance/1609.34) + "mi</span>";
+    new_card.getElementsByClassName("rest-rate")[0].innerHTML = "Rating: " + "*".repeat(parseInt(restaurant.rating)) +
+                                                                " (" + restaurant.review_count + ") <span> Price: " +
+                                                                restaurant.price + "</span>";
+    new_card.getElementsByClassName("rest-category")[0].innerHTML = restaurant.categories.join(", ");
+    new_card.getElementsByClassName("rest-transact")[0].innerHTML = capitalizeWords(restaurant.transactions).join(", ");
+    new_card.getElementsByClassName("rest-location")[0].innerHTML = restaurant.location;
+    new_card.getElementsByClassName("rest-yelp")[0].href = restaurant.url;
+
+    basic_card.after(new_card);
+}
+},{"./yelp":68}],45:[function(require,module,exports){
 'use strict';
 
 const _defaultOptions = require('./request-filters/default-options');
@@ -10572,7 +9988,7 @@ const defaultFilters = () => [
 ];
 
 module.exports = defaultFilters;
-},{"./request-filters/bearer-token":53,"./request-filters/default-options":54,"./request-filters/json-body":55,"./request-filters/query":56,"./request-filters/url-params":57,"./request-filters/urlencoded-body":58}],49:[function(require,module,exports){
+},{"./request-filters/bearer-token":50,"./request-filters/default-options":51,"./request-filters/json-body":52,"./request-filters/query":53,"./request-filters/url-params":54,"./request-filters/urlencoded-body":55}],46:[function(require,module,exports){
 'use strict';
 const _unhandledStatusFilter = require('./response-filters/unhandled-status');
 const _jsonBodyFilter = require('./response-filters/json-body');
@@ -10583,7 +9999,7 @@ const defaultFilters = () => [
 ];
 
 module.exports = defaultFilters;
-},{"./response-filters/json-body":59,"./response-filters/unhandled-status":60}],50:[function(require,module,exports){
+},{"./response-filters/json-body":56,"./response-filters/unhandled-status":57}],47:[function(require,module,exports){
 'use strict';
 
 const _caseless = require('caseless');
@@ -10615,7 +10031,7 @@ module.exports = {
   setHeaderIfNotExist: setHeaderIfNotExist,
   setContentTypeIfNotExist: setContentTypeIfNotExist
 };
-},{"caseless":61}],51:[function(require,module,exports){
+},{"caseless":58}],48:[function(require,module,exports){
 'use strict';
 
 const _smallRequest = require('small-request');
@@ -10640,7 +10056,7 @@ const send = (request, requestFilters, responseFilters) => {
 
 module.exports = send;
 
-},{"./default-request-filters":48,"./default-response-filters":49,"./process-filters":52,"small-request":66}],52:[function(require,module,exports){
+},{"./default-request-filters":45,"./default-response-filters":46,"./process-filters":49,"small-request":62}],49:[function(require,module,exports){
 'use strict';
 
 const processFilters = (context, filters) => {
@@ -10652,7 +10068,7 @@ const processFilters = (context, filters) => {
 };
 
 module.exports = processFilters;
-},{}],53:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 const _headers = require('../headers');
@@ -10669,7 +10085,7 @@ const filter = (request) => {
 module.exports = {
   filter: filter
 };
-},{"../headers":50}],54:[function(require,module,exports){
+},{"../headers":47}],51:[function(require,module,exports){
 'use strict';
 
 const defaultOptions = () => {
@@ -10685,7 +10101,7 @@ const filter = (request) => {
 module.exports = {
   filter: filter
 };
-},{}],55:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 'use strict';
 
 const _caseless = require('caseless');
@@ -10706,7 +10122,7 @@ const filter = (request) => {
 module.exports = {
   filter: filter
 };
-},{"../headers":50,"caseless":61}],56:[function(require,module,exports){
+},{"../headers":47,"caseless":58}],53:[function(require,module,exports){
 'use strict';
 
 const _url = require('url');
@@ -10726,7 +10142,7 @@ const filter = (request) => {
 module.exports = {
   filter: filter
 };
-},{"url":43}],57:[function(require,module,exports){
+},{"url":40}],54:[function(require,module,exports){
 'use strict';
 
 const _stringTemplate = require('string-template');
@@ -10751,7 +10167,7 @@ const filter = (request) => {
 module.exports = {
   filter: filter
 };
-},{"string-template":70,"url":43}],58:[function(require,module,exports){
+},{"string-template":66,"url":40}],55:[function(require,module,exports){
 'use strict';
 
 const _caseless = require('caseless');
@@ -10774,7 +10190,7 @@ const filter = (request) => {
 module.exports = {
   filter: filter
 };
-},{"../headers":50,"caseless":61,"querystring":21}],59:[function(require,module,exports){
+},{"../headers":47,"caseless":58,"querystring":18}],56:[function(require,module,exports){
 'use strict';
 
 const filter = (response) => {
@@ -10789,7 +10205,7 @@ const filter = (response) => {
 module.exports = {
   filter: filter
 };
-},{}],60:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 'use strict';
 const _TypedError = require('error/typed');
 
@@ -10814,7 +10230,7 @@ module.exports = {
   filter: filter,
   unhandledStatusError: error
 };
-},{"error/typed":64}],61:[function(require,module,exports){
+},{"error/typed":60}],58:[function(require,module,exports){
 function Caseless (dict) {
   this.dict = dict || {}
 }
@@ -10882,120 +10298,7 @@ module.exports.httpify = function (resp, headers) {
   return c
 }
 
-},{}],62:[function(require,module,exports){
-(function (process){(function (){
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
-
-const LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg
-
-// Parser src into an Object
-function parse (src) {
-  const obj = {}
-
-  // Convert buffer to string
-  let lines = src.toString()
-
-  // Convert line breaks to same format
-  lines = lines.replace(/\r\n?/mg, '\n')
-
-  let match
-  while ((match = LINE.exec(lines)) != null) {
-    const key = match[1]
-
-    // Default undefined or null to empty string
-    let value = (match[2] || '')
-
-    // Remove whitespace
-    value = value.trim()
-
-    // Check if double quoted
-    const maybeQuote = value[0]
-
-    // Remove surrounding quotes
-    value = value.replace(/^(['"`])([\s\S]*)\1$/mg, '$2')
-
-    // Expand newlines if double quoted
-    if (maybeQuote === '"') {
-      value = value.replace(/\\n/g, '\n')
-      value = value.replace(/\\r/g, '\r')
-    }
-
-    // Add to object
-    obj[key] = value
-  }
-
-  return obj
-}
-
-function _log (message) {
-  console.log(`[dotenv][DEBUG] ${message}`)
-}
-
-function _resolveHome (envPath) {
-  return envPath[0] === '~' ? path.join(os.homedir(), envPath.slice(1)) : envPath
-}
-
-// Populates process.env from .env file
-function config (options) {
-  let dotenvPath = path.resolve(process.cwd(), '.env')
-  let encoding = 'utf8'
-  const debug = Boolean(options && options.debug)
-  const override = Boolean(options && options.override)
-
-  if (options) {
-    if (options.path != null) {
-      dotenvPath = _resolveHome(options.path)
-    }
-    if (options.encoding != null) {
-      encoding = options.encoding
-    }
-  }
-
-  try {
-    // Specifying an encoding returns a string instead of a buffer
-    const parsed = DotenvModule.parse(fs.readFileSync(dotenvPath, { encoding }))
-
-    Object.keys(parsed).forEach(function (key) {
-      if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
-        process.env[key] = parsed[key]
-      } else {
-        if (override === true) {
-          process.env[key] = parsed[key]
-        }
-
-        if (debug) {
-          if (override === true) {
-            _log(`"${key}" is already defined in \`process.env\` and WAS overwritten`)
-          } else {
-            _log(`"${key}" is already defined in \`process.env\` and was NOT overwritten`)
-          }
-        }
-      }
-    })
-
-    return { parsed }
-  } catch (e) {
-    if (debug) {
-      _log(`Failed to load ${dotenvPath} ${e.message}`)
-    }
-
-    return { error: e }
-  }
-}
-
-const DotenvModule = {
-  config,
-  parse
-}
-
-module.exports.config = DotenvModule.config
-module.exports.parse = DotenvModule.parse
-module.exports = DotenvModule
-
-}).call(this)}).call(this,require('_process'))
-},{"_process":17,"fs":1,"os":15,"path":16}],63:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 var nargs = /\{([0-9a-zA-Z]+)\}/g
 var slice = Array.prototype.slice
 
@@ -11031,7 +10334,7 @@ function template(string) {
     })
 }
 
-},{}],64:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 'use strict';
 
 var template = require('string-template');
@@ -11119,7 +10422,7 @@ function has(obj, key) {
     return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
-},{"assert":2,"string-template":63}],65:[function(require,module,exports){
+},{"assert":1,"string-template":59}],61:[function(require,module,exports){
 'use strict';
 const http = require('http');
 const https = require('https');
@@ -11156,7 +10459,7 @@ module.exports = {
   fromUrl: fromUrl,
   unknownProtocolErrorType: unknownProtocolErrorType
 };
-},{"error/typed":64,"http":23,"https":11,"url":43}],66:[function(require,module,exports){
+},{"error/typed":60,"http":20,"https":10,"url":40}],62:[function(require,module,exports){
 'use strict';
 
 const _send = require('./send');
@@ -11165,7 +10468,7 @@ module.exports = {
   send: _send
 };
 
-},{"./send":68}],67:[function(require,module,exports){
+},{"./send":64}],63:[function(require,module,exports){
 'use strict';
 
 const responseHandler = (response, resolve, reject) => {
@@ -11189,7 +10492,7 @@ const responseHandler = (response, resolve, reject) => {
 };
 
 module.exports = responseHandler;
-},{}],68:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 'use strict';
 
 const _requestFunction = require('request-function');
@@ -11233,7 +10536,7 @@ const send = (requestModel) => {
 };
 
 module.exports = send;
-},{"./response-handler":67,"./to-request-options":69,"request-function":65}],69:[function(require,module,exports){
+},{"./response-handler":63,"./to-request-options":65,"request-function":61}],65:[function(require,module,exports){
 'use strict';
 
 const _url = require('url');
@@ -11247,7 +10550,7 @@ const toRequestOptions = (requestModel) =>{
 };
 
 module.exports = toRequestOptions;
-},{"url":43}],70:[function(require,module,exports){
+},{"url":40}],66:[function(require,module,exports){
 var nargs = /\{([0-9a-zA-Z_]+)\}/g
 
 module.exports = template
@@ -11285,7 +10588,7 @@ function template(string) {
     })
 }
 
-},{}],71:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 'use strict';
 
 const _send = require('@tonybadguy/call-me-maybe');
@@ -11428,14 +10731,14 @@ module.exports = {
   client: createClient
 };
 
-},{"@tonybadguy/call-me-maybe":51}],72:[function(require,module,exports){
-(function (process){(function (){
+},{"@tonybadguy/call-me-maybe":48}],68:[function(require,module,exports){
 'use strict';
 
-require('dotenv').config();
+// require('dotenv').config();
 const yelp = require('yelp-fusion');
 
-const apiKey = process.env.YELP_API_KEY;
+const apiKey = "cchs8Dx5bv1NQHQSPFWty6o-FQUnA5_XxE1ekIKcon2OXvv11UI9UwXN0qkzlAAf6Lc1_Hw_MXZ1M3u2y_SkJ6a-fpRKgUFqFYTQt108V_4c5TEdY6pJuz682glRYnYx";
+// const apiKey = process.env.YELP_API_KEY;
 
 function searchYelp(searchRequest) {
     const client = yelp.client(apiKey);
@@ -11482,5 +10785,4 @@ function searchYelp(searchRequest) {
 module.exports = {
     searchYelp
 };
-}).call(this)}).call(this,require('_process'))
-},{"_process":17,"dotenv":62,"yelp-fusion":71}]},{},[47]);
+},{"yelp-fusion":67}]},{},[44]);
