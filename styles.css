@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Monamour-italic;
+    src: url(images/FontsFree-Net-Monamour-1.ttf);
+}
+
+@font-face {
+    font-family: OliveDisplay;
+    src: url(images/FontsFree-Net-OliveDisplay-Medium.ttf);
+}
+
 html, body {
     height: 100%;
 }
@@ -5,7 +15,13 @@ html, body {
 body {
     background-size: cover;
     background-image: url("images/shutterstock_1162318672.jpg");
+    font-family: OliveDisplay, Arial, Helvetica, sans-serif;
 
+}
+
+h1#title {
+    font-family: Monamour-italic, Arial, Helvetica, sans-serif;
+    font-size: 4rem;
 }
 
 div.row {
@@ -62,4 +78,18 @@ input[type=checkbox] {
 input[type=checkbox]:checked + label {
     font-weight: bold;
     color: #0000ff;
+}
+
+div.carousel-cell div.card {
+    height: 100%;
+}
+
+div.main-carousel {
+    margin-top: 1.5rem;
+    margin-left: 5%;
+    width: 90%;
+}
+
+div.flickity-viewport {
+    width: 100%;
 }

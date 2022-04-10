@@ -53,6 +53,27 @@ function make_deck(rests) {
     document.getElementById("user-swap").getElementsByClassName("card-title")[0].innerHTML = "You're up Player " + curr_user;
 }
 
+function make_carousel(rests) {
+    rests = rests.sort((a, b) => 0.5 - Math.random());
+
+    for (var i = 0; i < rests.length; i++) {
+        make_carousel_cell(rests[i]);
+    }
+
+    $('#basic_cell').remove()
+
+    $('.main-carousel').flickity({
+        // options
+        freeScroll: true,
+        cellAlign: 'left',
+        wrapAround: true,
+        contain: true,
+        autoPlay: true,
+        imagesLoaded: true,
+        adaptiveHeight: true
+    });
+}
+
 function swap_user() {
     if ((matches.length >= enough_matches || restaurants.length <= last_rest) && using_matches === 0) {
         using_matches = 1;
@@ -87,14 +108,15 @@ function swap_user() {
 }
 
 function show_results() {
-    document.getElementById("user-swap").remove();
+    document.getElementsByClassName("container")[0].remove();
+    document.getElementsByClassName("main-carousel")[0].classList.remove("d-none");
 
     matched_rests = [];
     for (var i = 0; i < matches.length; i++) {
         matched_rests.push(restaurants[matches[i]]);
     }
 
-    make_deck(matched_rests);
+    make_carousel(matched_rests);
 }
 
 function judge(card, judgement) {
@@ -130,6 +152,26 @@ function capitalizeWords(arr) {
 
 function make_card(restaurant) {
     var basic_card = document.querySelector('#basic_card');
+    var new_card = basic_card.cloneNode(true);
+    new_card.id = restaurant.name
+    $(new_card).show()
+    
+    new_card.getElementsByClassName("rest-img")[0].src = restaurant.image_url;
+    new_card.getElementsByClassName("rest-name")[0].innerHTML = restaurant.name + " <span style='font-size: 0.8em;'>" +
+                                                                parseInt(restaurant.distance/1609.34) + "mi</span>";
+    new_card.getElementsByClassName("rest-rate")[0].innerHTML = "Rating: " + "★".repeat(parseInt(restaurant.rating+0.49)) +
+                                                                " (" + restaurant.review_count + ") <span> Price: " +
+                                                                restaurant.price + "</span>";
+    new_card.getElementsByClassName("rest-category")[0].innerHTML = restaurant.categories.join(", ");
+    new_card.getElementsByClassName("rest-transact")[0].innerHTML = capitalizeWords(restaurant.transactions).join(", ");
+    new_card.getElementsByClassName("rest-location")[0].innerHTML = restaurant.location;
+    new_card.getElementsByClassName("rest-yelp")[0].href = restaurant.url;
+
+    basic_card.after(new_card);
+}
+
+function make_carousel_cell(restaurant) {
+    var basic_card = document.querySelector('#basic_cell');
     var new_card = basic_card.cloneNode(true);
     new_card.id = restaurant.name
     $(new_card).show()
