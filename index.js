@@ -1,4 +1,4 @@
-// const yelp = require('./yelp');
+const yelp = require('./yelp');
 
 var restaurants = [];
 var per_person = 5;
@@ -30,15 +30,17 @@ function call_api(pos) {
 
     console.log(searchRequest);
 
-    // yelp.searchYelp(searchRequest).then(rests => {
-    //     restaurants = rests; console.log(rests);
-    // });
+    yelp.searchYelp(searchRequest).then(rests => {
+        restaurants = rests; console.log(rests);
 
-    restaurants = get_rests();
+        console.log(restaurants);
 
-    console.log(restaurants);
+        swap_user();
+    });
 
-    swap_user();
+    // restaurants = get_rests();
+
+    
 }
 
 function make_deck(rests) {
