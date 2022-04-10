@@ -9,26 +9,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- <script src="bundle.js"></script> -->
     <script src="index.js"></script>
-    
-    <style>
-        html, body {
-            height: 100%;
-        }
 
-        div.row {
-            flex-direction: column;
-        }
-
-        div.card {
-            position: absolute;
-        }
-
-        .rest-name, .rest-rate {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 </head>
 <body>
 
@@ -36,7 +19,7 @@
     <div class="row h-100 justify-content-center align-items-center">
         
         <div class="card" style="width: 18rem;" id="user-swap">
-            <img class="card-img-top" src="images/food-svgrepo-com.svg" alt="Card image cap">
+            <img class="card-img-top" src="images/favicon_1.svg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">You're up Player 2</h5>
                 <p class="card-text">Please switch to the next user</p>
@@ -47,7 +30,7 @@
         </div>
 
         <div class="card" id="basic_card" style="width: 18rem; height: 90%; display: none">
-            <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
+            <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title rest-name">Restuarant   <span>Distance</span></h5>
                 <p class="card-text rest-rate">Rating: ***** (XXX)   <span>Price: $$$$</span></p>
@@ -58,10 +41,86 @@
                 <li class="list-group-item rest-location">Street, City</li>
             </ul>
             <div class="card-body d-flex justify-content-between" style="align-items: end;">
-                <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link">Nope</a>
-                <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
-                <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link">Yum!</a>
+                <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link" style="width: 20%"><img src="images/dislike.svg"
+                    style="filter: invert(76%) sepia(89%) saturate(1094%) hue-rotate(311deg) brightness(100%) contrast(103%); margin-bottom: 1rem;"></a>
+                <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp"
+                    style="width: 35%"><img src="images/yelp.png"></a>
+                <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link" style="width: 23%"><img src="images/like.svg"
+                    style="filter: invert(96%) sepia(6%) saturate(1108%) hue-rotate(58deg) brightness(96%) contrast(82%); margin-bottom: 1rem;"></a>
             </div>
+        </div>
+    </div>
+
+    <div class="row h-100 justify-content-center align-items-center d-none">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card" id="basic_card" style="width: 18rem; height: 90%;">
+                    <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title rest-name">Restuarant   <span>Distance</span></h5>
+                        <p class="card-text rest-rate">Rating: ***** (XXX)   <span>Price: $$$$</span></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item rest-category">Categories</li>
+                        <li class="list-group-item rest-transact">Transactions</li>
+                        <li class="list-group-item rest-location">Street, City</li>
+                    </ul>
+                    <div class="card-body d-flex justify-content-between" style="align-items: end;">
+                        <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link">Nope</a>
+                        <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
+                        <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link">Yum!</a>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card" id="basic_card" style="width: 18rem; height: 90%;">
+                    <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title rest-name">Restuarant   <span>Distance</span></h5>
+                        <p class="card-text rest-rate">Rating: ***** (XXX)   <span>Price: $$$$</span></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item rest-category">Categories</li>
+                        <li class="list-group-item rest-transact">Transactions</li>
+                        <li class="list-group-item rest-location">Street, City</li>
+                    </ul>
+                    <div class="card-body d-flex justify-content-between" style="align-items: end;">
+                        <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link">Nope</a>
+                        <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
+                        <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link">Yum!</a>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card" id="basic_card" style="width: 18rem; height: 90%;">
+                    <img class="card-img-top rest-img" src="images/restr_ex.jpg" alt="Card image cap" style="max-height: 35vh; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title rest-name">Restuarant   <span>Distance</span></h5>
+                        <p class="card-text rest-rate">Rating: ***** (XXX)   <span>Price: $$$$</span></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item rest-category">Categories</li>
+                        <li class="list-group-item rest-transact">Transactions</li>
+                        <li class="list-group-item rest-location">Street, City</li>
+                    </ul>
+                    <div class="card-body d-flex justify-content-between" style="align-items: end;">
+                        <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link">Nope</a>
+                        <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp">Yelp</a>
+                        <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link">Yum!</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,65 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    background-image: url("images/shutterstock_1162318672.jpg");
+
+}
+
+div.row {
+    flex-direction: column;
+}
+
+div.card {
+    position: absolute;
+    background-color: #fff3ef;
+}
+
+a.card-link {
+    margin-left: none;
+}
+
+a.card-link img{
+    width: 100%;
+}
+
+div#user-swap img.card-img-top {
+    margin: 10%;
+    width: 80%;
+    height: auto;
+}
+
+a.card-link img:hover{
+    transform: scale(1.1); 
+}
+
+li.list-group-item {
+    background-color: inherit;
+    border: none;
+}
+
+.rest-name, .rest-rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img.card-img-top {
+    height: 35vh;
+    object-fit: cover;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked + label {
+    font-weight: bold;
+    color: #0000ff;
+}
