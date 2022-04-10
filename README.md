@@ -1,4 +1,7 @@
 # ByteSwipe
+
+<img src="images/favicon.svg" alt="logo" width="100"/>
+
 A Tinder style web app for deciding on a restaurant with others!
 
 ## Setting up
