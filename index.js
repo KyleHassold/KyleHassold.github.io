@@ -26,8 +26,6 @@ function call_api(pos) {
         limit: 20,
     };
 
-    console.log(searchRequest);
-
     yelp.searchYelp(searchRequest).then(rests => {
         restaurants = rests;
 
@@ -44,6 +42,7 @@ function make_deck(rests) {
 
     curr_user = curr_user % max_users + 1;
     document.getElementById("user-swap").getElementsByClassName("card-title")[0].innerHTML = "You're up Player " + curr_user;
+    document.getElementById("user-swap").getElementsByClassName("btn")[0].addEventListener("click", swap_user);
 }
 
 function make_carousel(rests) {
@@ -111,7 +110,7 @@ function show_results() {
 }
 
 function judge(card, judgement) {
-    rest_name = $(card).find("h5.rest-name")[0].innerHTML.split(" <span")[0];
+    rest_name = $(card).find("h5.rest-name")[0].innerHTML.split(" <span")[0].replaceAll('&amp;', '&');
     var index = -1;
     restaurants.find(function(item, i){
         if(item.name === rest_name){
@@ -157,6 +156,14 @@ function make_card(restaurant) {
     new_card.getElementsByClassName("rest-yelp")[0].href = restaurant.url;
 
     basic_card.after(new_card);
+
+    new_card.getElementsByClassName("card-link")[0].addEventListener("click", clickHandle, false);
+    new_card.getElementsByClassName("card-link")[2].addEventListener("click", clickHandle, false);
+}
+
+function clickHandle(evt) {
+    var value = (0 + evt.currentTarget.innerHTML.includes("dislike")) * -2 + 1
+    judge(evt.currentTarget.parentNode.parentNode, value);
 }
 
 function make_carousel_cell(restaurant) {
