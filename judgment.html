@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     
-    <!-- <script src="bundle.js"></script> -->
-    <script src="index.js"></script>
+    <script src="bundle.js"></script>
+    <!-- <script src="index.js"></script> -->
 
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
@@ -29,7 +29,7 @@
                 <p class="card-text">Please switch to the next user</p>
             </div>
             <div class="card-body d-flex justify-content-between">
-                <button type="button" class="btn btn-dark" onclick="swap_user();">Next</button>
+                <button type="button" class="btn btn-dark">Next</button>
             </div>
         </div>
 
@@ -45,11 +45,11 @@
                 <li class="list-group-item rest-location">Street, City</li>
             </ul>
             <div class="card-body d-flex justify-content-between" style="align-items: end;">
-                <a href="#" onclick="judge(this.parentNode.parentNode, -1)" class="card-link" style="width: 20%"><img src="images/dislike.svg"
+                <a href="#" class="card-link" style="width: 20%"><img src="images/dislike.svg"
                     style="filter: invert(76%) sepia(89%) saturate(1094%) hue-rotate(311deg) brightness(100%) contrast(103%); margin-bottom: 1rem;"></a>
                 <a href="https://www.yelp.com/" target="_blank" rel="noopener noreferrer" class="card-link rest-yelp"
                     style="width: 35%"><img src="images/yelp.png"></a>
-                <a href="#" onclick="judge(this.parentNode.parentNode, 1)" class="card-link" style="width: 23%"><img src="images/like.svg"
+                <a href="#" class="card-link" style="width: 23%"><img src="images/like.svg"
                     style="filter: invert(96%) sepia(6%) saturate(1108%) hue-rotate(58deg) brightness(96%) contrast(82%); margin-bottom: 1rem;"></a>
             </div>
         </div>
